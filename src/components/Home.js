@@ -8,10 +8,11 @@ const COOKIE_KEY = "tacos"
 
 export default class Home extends Component {
 
-    constructor () {
-        super()
+    constructor (props) {
+        super(props)
         // Set cookie if it doesn't exist
-        let savedTacos = Cookies.getJSON(COOKIE_KEY)
+        //let savedTacos = Cookies.getJSON(COOKIE_KEY)
+        let savedTacos = this.props.tacos
         if (savedTacos === undefined) {
             Cookies.set(COOKIE_KEY, [], { expires: 365, path: "" })
             savedTacos = []
@@ -42,7 +43,10 @@ export default class Home extends Component {
         // Update saved tacos
         const newTacos = this.state.tacos.concat([new Taco(config)])
         this.setState({ tacos: newTacos })
-        Cookies.set(COOKIE_KEY, newTacos)
+        // On github pages cookies don't work!!!
+        // Cookies.set(COOKIE_KEY, newTacos)
+        this.props.onSave(newTacos)
+        this.props.onSave(newTacos)
         if (cameFromHistory === true)
             this.props.history.replace("/", null)
     }
@@ -51,14 +55,16 @@ export default class Home extends Component {
     deleteAllTacos () {
         this.setState({ tacos: [] })
         // Update cookie
-        Cookies.set(COOKIE_KEY, [])
+        //Cookies.set(COOKIE_KEY, [])
+        this.props.onSave([])
     }
 
     // Deletes one taco within our stored array, given by index
     deleteOneTaco (i) {
         this.setState((prevState) => {
             const tacos = prevState.tacos.filter((item, j) => i != j)
-            Cookies.set(COOKIE_KEY, tacos)
+            //Cookies.set(COOKIE_KEY, tacos)
+            this.props.onSave(tacos)
             return { tacos: tacos }
         })
     }
@@ -74,7 +80,8 @@ export default class Home extends Component {
                     }
                 return item
             })
-            Cookies.set(COOKIE_KEY, tacos)
+            //Cookies.set(COOKIE_KEY, tacos)
+            this.props.onSave(tacos)
             return { tacos: tacos }
         })
     }

@@ -9,9 +9,15 @@ export default class App extends Component {
     constructor () {
         super()
         this.state = {
+            tacos: [],
             dark: false
         }
+        this.saveTacos = this.saveTacos.bind(this)
         this.toggleDarkMode = this.toggleDarkMode.bind(this)
+    }
+
+    saveTacos (tacos) {
+        this.setState({ tacos: tacos })
     }
 
     toggleDarkMode () {
@@ -20,8 +26,14 @@ export default class App extends Component {
 
     render () {
         return (
-            <div className={ this.state.dark ? "app dark" : "app"}> 
-                <Route exact path="/" render={(props) => <Home {...props} onCheck={this.toggleDarkMode} />} />
+            <div className={ this.state.dark ? "app dark" : "app"}>
+                <Route exact path="/" render={(props) => {
+                    return <Home
+                        {...props}
+                        onCheck={this.toggleDarkMode}
+                        onSave={this.saveTacos}
+                        tacos={this.state.tacos}
+                    />}} />
                 <Route path="/form" component={CheckForm} />
             </div>
         );
