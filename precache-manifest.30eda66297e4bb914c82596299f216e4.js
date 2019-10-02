@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c55f58198a44516efb8949ae2c01dc7",
+    "revision": "c1b8693bcb835f98ee655bdf313f23e0",
     "url": "/taco-generator/index.html"
   },
   {
-    "revision": "22cec730afff957c3822",
+    "revision": "4ef636d7619b58901cc7",
     "url": "/taco-generator/static/css/main.0c8c8ba4.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/taco-generator/static/js/2.2e054e2e.chunk.js"
   },
   {
-    "revision": "22cec730afff957c3822",
-    "url": "/taco-generator/static/js/main.082cacdc.chunk.js"
+    "revision": "4ef636d7619b58901cc7",
+    "url": "/taco-generator/static/js/main.9b817d8b.chunk.js"
   },
   {
     "revision": "a80dedbd2881ce860073",
