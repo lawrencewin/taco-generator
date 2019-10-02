@@ -11,4 +11,4 @@ the main way of saving taco generations doesn't exist.
 
 To run the app offline, clone the repository to your computer with `git clone https://github.com/lawrencewin/taco-generator.git`.
 
-Once you clone the repo, simply go into the main directory and in your command line, run `npm start`.
+Once you clone the repo, go into the main directory with your terminal. Install the required dependencies using `npm install`. Once installation is finished, type `npm start`, and the app should run in your browser at [http://localhost:3000](http://localhost:3000).
