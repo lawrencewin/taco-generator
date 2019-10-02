@@ -89,9 +89,6 @@ export default class CheckForm extends Component {
             this.setState({ error: errorString })
             return
         }
-        console.log(selected)
-        // Push onto history
-        this.props.history.push("/", selected)
         this.setState({ submitted: true })
     }
 
@@ -124,7 +121,12 @@ export default class CheckForm extends Component {
     render () {
         const { formSections, selected, loading, error, submitted } = this.state
         if (submitted)
-            return <Redirect to="/" />
+            return <Redirect
+            to={{
+                pathname: "/",
+                state: selected
+            }}
+        />
         return loading ?
         (
             <div className="body">
@@ -140,6 +142,7 @@ export default class CheckForm extends Component {
         ) : (
             <div className="body">
                 <Link to="/">Back to home</Link>
+                <h2>Build your Taco</h2>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     { formSections.map((section, i) => {
                         return (
