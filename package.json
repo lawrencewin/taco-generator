@@ -32,5 +32,6 @@
             "last 1 safari version"
         ]
     },
-    "proxy": "https://ct-tacoapi.azurewebsites.net/"
+    "proxy": "https://ct-tacoapi.azurewebsites.net/",
+    "homepage": "https://myusername.github.io/taco-generator"
 }
