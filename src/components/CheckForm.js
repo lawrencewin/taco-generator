@@ -43,27 +43,32 @@ export default class CheckForm extends Component {
         }
         this.handleSelect = this.handleSelect.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentDidMount () {
         this.getOptions()
     }
 
     // Calls the API to get our choices of ingredients for each given category and saves it to use later
     async getOptions () {
-        const endpoints = Object.keys(options)
-        for (const endpoint of endpoints) {
-            const response = await fetch(`${API_URL}/${endpoint}`)
-            const choices = await response.json()
-            // Strip names of parenthesis to make ingredient more readable
-            for (const choice of Object.keys(choices)) {
-                let name = choices[choice].name
-                if (name.includes("\(")) {
-                    choices[choice].name = name.replace(/ *\([^)]*\) */g, "")
+        if (SECTIONS.length === 0) {
+            const endpoints = Object.keys(options)
+            for (const endpoint of endpoints) {
+                const response = await fetch(`${API_URL}/${endpoint}`)
+                const choices = await response.json()
+                // Strip names of parenthesis to make ingredient more readable
+                for (const choice of Object.keys(choices)) {
+                    let name = choices[choice].name
+                    if (name.includes("\(")) {
+                        choices[choice].name = name.replace(/ *\([^)]*\) */g, "")
+                    }
                 }
+                SECTIONS.push({
+                    title: options[endpoint],
+                    type: endpoint,
+                    choices: choices
+                })
             }
-            SECTIONS.push({
-                title: options[endpoint],
-                type: endpoint,
-                choices: choices
-            })
         }
         this.setState({ loading: false, formSections: SECTIONS })
     }
@@ -81,7 +86,6 @@ export default class CheckForm extends Component {
         }
         // Check if everything has been filled
         if (unfilled.length > 0) {
-            console.log(unfilled)
             let errorString = "Please fill out all options. You've missed the following categories: "
             errorString += unfilled.reduce((sum, missed, i) => {
                 if (i === 0) { return `${missed}` }
@@ -108,7 +112,6 @@ export default class CheckForm extends Component {
             } else {
                 updated = option.filter(item => item !== value)
             }
-            console.log(updated)
             return {
                 ...prevState,
                 selected: {

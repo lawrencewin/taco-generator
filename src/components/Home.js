@@ -34,7 +34,6 @@ export default class Home extends Component {
             // Update saved tacos
             this.saveTaco(config, true)
         }
-        console.log(this.props.history)
     }
 
     // Given a configuration of a taco, containing baseLayer, mixins, etc., save it to our state array and locally in our cookie
@@ -100,7 +99,6 @@ export default class Home extends Component {
     }
 
     render () {
-        console.log(this.state.tacos)
         const { tacos, darkMode } = this.state
         return (
             <div className="body">
@@ -110,6 +108,7 @@ export default class Home extends Component {
                     <label for="DarkMode">Dark Mode</label>
                 </div>
                 <p>This web app aims to solve man's greatest problem, which isn't climate change, nor is it the crumbling faith towards our institutions, but rather it's the question of what kind of taco should you or I eat. Click either of the two buttons to find out. </p>
+                <p>Created by Larry Win</p>
                 <Link to="/form" className="linkButton acc1">Give me a new TACO!</Link>
                 <a href="#" className="linkButton acc2" onClick={this.getRandomTaco}>Surprise me with a Random TACO!</a>
                 <h3 className="acc2">Your Tacos</h3>

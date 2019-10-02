@@ -3,7 +3,7 @@ import FoodWords from "./FoodWords"
 const API_URL = "https://ct-tacoapi.azurewebsites.net"
 
 // Useful variables
-const VOWELS = ["a", "e", "i", "o", "u"]
+const VOWELS = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 const MAX_SELECTED = {
     shells: 1,
     baseLayers: 2,
@@ -36,7 +36,6 @@ function randInt (int, floor = 0) { return Math.floor(Math.random() * int) + flo
 // Turns an array of strings into a string containing all strings in the array, separated by commas and the correct conjunctions
 function toConjuncted (arr) {
     const a = arr.map(str => {
-        console.log(str)
         return str.trim()
     })
     if (a.length === 1) {
@@ -57,6 +56,7 @@ function toConjuncted (arr) {
 
 // Returns "an" or "a" depending on whether the passed word starts with a vowel or not
 function aOrAn (word) {
+    console.log(word.charAt(0))
     if (VOWELS.includes(word.charAt(0))) return "an"
     return "a"
 }
@@ -65,13 +65,14 @@ function aOrAn (word) {
 function getDescriptionString (configObject, foodWords) {
     const { shells, baseLayers, mixins, condiments, seasonings } = configObject
     const word1 = foodWords.getAdjective(), word2 = foodWords.getAdjective()
-    return `${capitalized(aOrAn(word1))} ${word1} ${toConjuncted(baseLayers)} taco ${foodWords.getVerb("shells")} in ${toConjuncted(shells)}, ${foodWords.getVerb("mixins")} with some ${word2} ${toConjuncted(mixins)}, ${foodWords.getVerb("condiments")} with ${toConjuncted(condiments)}, and ${foodWords.getVerb("seasonings")} with ${toConjuncted(seasonings)} `
+    return `${capitalized(aOrAn(word1))} ${word1} ${toConjuncted(baseLayers)} taco ${foodWords.getVerb("shells")} in ${toConjuncted(shells)}, ${foodWords.getVerb("mixins")} with some ${word2} ${toConjuncted(mixins)}, ${foodWords.getVerb("condiments")} with ${toConjuncted(condiments)}, and ${foodWords.getVerb("seasonings")} with a ${toConjuncted(seasonings)}.`
 }
 
 // Creates a title string using a taco config and a food word generator class
 function getTitle (configObject, foodWords) {
     const base = toConjuncted(configObject.baseLayers)
-    return `${capitalized(aOrAn(base))} ${capitalized(foodWords.getAdjective())} ${base} Taco.`
+    const adj = foodWords.getAdjective()
+    return `${capitalized(aOrAn(adj))} ${capitalized(adj)} ${base} Taco.`
 }
 
 // Taco class which takes a taco configuration and generates a title, description, and thumbnail
