@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/taco-generator/static/css/main.0c8c8ba4.chunk.css",
+    "main.js": "/taco-generator/static/js/main.082cacdc.chunk.js",
+    "main.js.map": "/taco-generator/static/js/main.082cacdc.chunk.js.map",
+    "runtime-main.js": "/taco-generator/static/js/runtime-main.9cd63d12.js",
+    "runtime-main.js.map": "/taco-generator/static/js/runtime-main.9cd63d12.js.map",
+    "static/js/2.2e054e2e.chunk.js": "/taco-generator/static/js/2.2e054e2e.chunk.js",
+    "static/js/2.2e054e2e.chunk.js.map": "/taco-generator/static/js/2.2e054e2e.chunk.js.map",
+    "index.html": "/taco-generator/index.html",
+    "precache-manifest.410a326c38894de3072e8294e9910561.js": "/taco-generator/precache-manifest.410a326c38894de3072e8294e9910561.js",
+    "service-worker.js": "/taco-generator/service-worker.js",
+    "static/css/main.0c8c8ba4.chunk.css.map": "/taco-generator/static/css/main.0c8c8ba4.chunk.css.map"
+  }
+}
