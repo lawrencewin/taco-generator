@@ -86,30 +86,36 @@ a.linkButton {
         background: $lightAcc1;
         border-color: $darkAcc1;
 
-        &:hover, &:active {
+        &:hover {
             background: $darkAcc1;
             color: $white2;
         }
+
+        &:active { color: #d0d0d0; }
     }
 
     &.acc2 {
         background: $lightAcc2;
         border-color: $darkAcc2;
 
-        &:hover, &:active {
+        &:hover {
             background: $darkAcc2;
             color: $white2;
         }
+
+        &:active { color: #d0d0d0; }
     }
 
     &.acc3 {
         background: $lightAcc3;
         border-color: $darkAcc3;
 
-        &:hover, &:active {
+        &:hover {
             background: $darkAcc3;
             color: $white2;
         }
+
+        &:active { color: #d0d0d0; }
     }
 
 }

@@ -33,6 +33,7 @@ export default class App extends Component {
                         onCheck={this.toggleDarkMode}
                         onSave={this.saveTacos}
                         tacos={this.state.tacos}
+                        checked={this.state.dark}
                     />}} />
                 <Route path="/form" component={CheckForm} />
             </div>

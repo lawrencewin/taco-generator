@@ -107,7 +107,7 @@ export default class Home extends Component {
             <div className="body">
                 <h1>The Taco Generator!</h1>
                 <div>
-                    <input type="checkbox" id="DarkMode" onChange={this.handleCheckToggle} />
+                    <input type="checkbox" id="DarkMode" checked={this.props.checked} onChange={this.handleCheckToggle} />
                     <label for="DarkMode">Dark Mode</label>
                 </div>
                 <p>This web app aims to solve man's greatest problem, which isn't climate change, nor is it the crumbling faith towards our institutions, but rather it's the question of what kind of taco should you or I eat. Click either of the two buttons to find out. </p>
