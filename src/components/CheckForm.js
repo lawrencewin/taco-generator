@@ -3,6 +3,8 @@ import {SquareLoader} from "react-spinners"
 import { Redirect, Link} from "react-router-dom"
 import "../sass/CheckForm.scss"
 
+const API_URL = "https://ct-tacoapi.azurewebsites.net"
+
 // Useful variables
 const options = {
     shells: "Shells",
@@ -49,7 +51,7 @@ export default class CheckForm extends Component {
         if (SECTIONS.length > 0) return
         const endpoints = Object.keys(options)
         for (const endpoint of endpoints) {
-            const response = await fetch(`/${endpoint}`)
+            const response = await fetch(`${API_URL}/${endpoint}`)
             const choices = await response.json()
             // Strip names of parenthesis to make ingredient more readable
             for (const choice of Object.keys(choices)) {

@@ -1,5 +1,7 @@
 import FoodWords from "./FoodWords"
 
+const API_URL = "https://ct-tacoapi.azurewebsites.net"
+
 // Useful variables
 const VOWELS = ["a", "e", "i", "o", "u"]
 const MAX_SELECTED = {
@@ -91,7 +93,7 @@ export async function randomTacoConfig () {
     for (const option of Object.keys(options)) {
         // Fetch from endpoint if needed
         if (options[option] === undefined) {
-            const response = await fetch("/" + option)
+            const response = await fetch(API_URL + "/" + option)
             options[option] = await response.json()
             // Remove parenthesis in an ingredient name for readability
             for (const choice of options[option]) {
