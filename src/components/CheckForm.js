@@ -48,7 +48,6 @@ export default class CheckForm extends Component {
 
     // Calls the API to get our choices of ingredients for each given category and saves it to use later
     async getOptions () {
-        if (SECTIONS.length > 0) return
         const endpoints = Object.keys(options)
         for (const endpoint of endpoints) {
             const response = await fetch(`${API_URL}/${endpoint}`)
