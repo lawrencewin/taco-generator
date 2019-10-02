@@ -1,0 +1,127 @@
+@import "imports";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: $black3;
+    background: $white1;
+    font-family: $lato;
+    font-size: 16px;
+}
+
+#root { height: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $oswald;
+    font-weight: 500;
+    color: $black1;
+    letter-spacing: .0625rem;
+    margin: .5rem auto;
+
+    &.acc1 { color: $lightAcc1 }
+    &.acc2 { color: $lightAcc2 }
+    &.acc3 { color: $lightAcc3 }
+}
+
+h1 { font-size: 3rem; } h2 { font-size: 2.5rem; } h3 { font-size: 2rem; } h4 { font-size: 1.75rem; } h5 { font-size: 1.5rem; } h6 { font-size: 1.25rem }
+
+p {
+    line-height: 150%;
+}
+
+.app {
+    width: 100%;
+    padding: 1rem;
+    min-height: 100%;
+    transition: background .25s ease-in, color .25s ease-in;
+
+    &.dark {
+        background: $black1;
+        color: $white3;
+        h1, h2, h3, h4, h5, h6 {
+            color: $white1;
+            transition: color .25s ease-in;
+
+            &.acc1 { color: $lightAcc1 }
+            &.acc2 { color: $lightAcc2 }
+            &.acc3 { color: $lightAcc3 }
+        }
+
+        li.tacoListItem {
+            background: $black2;
+
+            .flexContainer .textContainer .tacoTitle {
+                color: $white2;
+            }
+            ul.operations {
+                li {
+                    color: $white3;
+                }
+            }
+        }
+    }
+}
+
+.body {
+    text-align: center;
+}
+
+a.linkButton {
+    display: block;;
+    padding: 1rem 3rem;
+    margin: .5rem;
+    color: $white2;
+    font-family: $oswald;
+    border-style: solid;
+    border-width: .1875rem;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease;
+
+    &.acc1 {
+        background: $lightAcc1;
+        border-color: $darkAcc1;
+
+        &:hover, &:active {
+            background: $darkAcc1;
+            color: $white2;
+        }
+    }
+
+    &.acc2 {
+        background: $lightAcc2;
+        border-color: $darkAcc2;
+
+        &:hover, &:active {
+            background: $darkAcc2;
+            color: $white2;
+        }
+    }
+
+    &.acc3 {
+        background: $lightAcc3;
+        border-color: $darkAcc3;
+
+        &:hover, &:active {
+            background: $darkAcc3;
+            color: $white2;
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .body {
+        width: 768px;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    a.linkButton {
+        display: inline-block;
+    }
+}

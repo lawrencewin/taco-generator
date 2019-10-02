@@ -1,0 +1,55 @@
+@import "imports";
+
+form {
+    text-align: left;
+
+    .loader {
+        display: block;
+        margin: 5rem auto;
+        text-align: center;
+    }
+
+    input[type="submit"] {
+        font-family: $lato;
+        font-size: 1rem;
+        padding: .25rem;
+        margin: .5rem auto;
+        border: solid .125rem $darkAcc1;
+        color: $white2;
+        background: $lightAcc1;
+        outline: none;
+        transition: background .25s ease, font-color .25s ease;
+
+        &:hover {
+            color: $white1;
+            cursor: pointer;
+        }
+
+        &:active {
+            background: $darkAcc1;
+        }
+    }
+
+    .checkGroup {
+        margin: .25rem auto;
+
+        label {
+            font-size: 1rem;
+        }
+
+        input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            vertical-align: middle;
+            background: none;
+            border: $black3;
+        }
+    }
+
+    .error {
+        text-transform: uppercase;
+        margin: 1rem 0;
+    }
+
+
+}
